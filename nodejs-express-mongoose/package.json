@@ -1,0 +1,19 @@
+{
+    "name": "noobjs"
+  , "description": "A demo app with express, jade and mogoose"
+  , "version": "2.0.0"
+  , "private": true
+  , "author": ""
+  , "engines": {
+      "node": ">= 0.4.10"
+    }
+  , "dependencies": {
+      "express" : ">= 2.3.12"
+    , "jade"    : ">= 0.12.4"
+    , "mongoose": ">= 1.4.0"
+    , "stylus"   : ">= 0.13.7"
+    , "express-csrf" : ">= 0.3.3"
+    , "gzippo"   : ">= 0.0.4"
+    , "express-messages" : ">= 0.0.2"
+  }
+}

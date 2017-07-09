@@ -1,0 +1,5 @@
+{
+  "development" : {
+    "mongo_uri": "mongodb://localhost/noobjs_development"
+  }
+}

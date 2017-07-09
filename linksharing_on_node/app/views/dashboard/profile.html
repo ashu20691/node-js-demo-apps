@@ -1,0 +1,63 @@
+<div>
+    <h1>Profile </h1>
+    <div class="jumbotron">
+        <div class="container row">
+            <div class="col-md-5 col-lg-5  col-md-offset-1">
+                <form role="form">
+                    <div class="form-content">
+                        <div class="form-group">
+                           <label>Username</label><input type="text" class="form-control  input-lg"  id="username" ng-model="username" placeholder="{{username}}" ng-disabled="{{true}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Firstname</label><input type="text" class="form-control input-lg" id="firstName" ng-model="firstname" placeholder="{{firstname}}" ng-disabled="editable">
+                        </div>
+                        <div class="form-group">
+                            <label>Lastname</label><input type="text" class="form-control  input-lg" id="lastName" ng-model="lastname" placeholder="{{lastname}}" ng-disabled="editable">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label><input type="text" class="form-control   input-lg" id="email" ng-model="email" placeholder="{{email}}" ng-disabled="editable">
+                        </div>
+                        <div ng-show="showSaveProfile">
+                            <div class="form-group">
+                                <label>Profile Image</label>
+                                <vaadin-upload target="{{imageUploadUrl}}"
+                                               method="POST"
+                                               accept="image/*"
+                                               max-file-size="1000000"
+                                               headers="{'Accept': 'application/json'}"
+                                               timeout=15000>
+                                </vaadin-upload>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn  btn-large btn-danger" ng-click="edit()">Edit</button>
+                    <button class="btn  btn-large btn-success" ng-show="showSaveProfile" ng-click="save()">Save</button>
+                </form>
+            </div>
+            <div class="col-md-4 col-lg-4  col-md-offset-2">
+                <form role="form">
+                    <div class="form-content">
+                        <div class="form-group">
+                            <label>Password</label> <input type="password" class="form-control input-lg" id="password" ng-model="password" placeholder="Password" ng-disabled="editablePass">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label> <input type="password" class="form-control input-lg" id="confirmPassword"  placeholder="Confirm Password" ng-disabled="editablePass">
+                        </div>
+                    </div>
+                    <button class="btn  btn-large btn-danger" ng-click="editPassword()">Change Password</button>
+                    <button class="btn  btn-large btn-success" ng-show="showSavePassword" ng-click="savePassword()">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style is="custom-style">
+    vaadin-upload {
+        --primary-color: #3CA2E0;
+        --vaadin-upload-file-row: {
+            background-color: rgba(183, 225, 205, 0.24);
+            padding: 5px;
+            border-radius: 4px 4px 0px 0px;
+        };
+    }
+</style>

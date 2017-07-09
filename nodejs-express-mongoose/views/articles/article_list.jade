@@ -1,0 +1,15 @@
+- if(lastInCollection)
+  - clazz = 'last'
+- else
+  - clazz = ''
+div(class="article #{clazz}")
+  div.article_title
+    a(href='/article/'+article._id, title=article.title) #{article.title}
+  div.article_body
+    =article.body
+  a(href='/article/'+article._id+'/edit', title="edit") Edit
+  &nbsp;
+  a(class='destroy', href='/article/'+article._id, title="delete") Delete
+  &nbsp;
+  span.article_date #{dateformat(article.created_at, "%b %d, %Y at %I:%M %p")} |
+  | &nbsp; #{article.comments.length} comments

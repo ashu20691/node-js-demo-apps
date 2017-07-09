@@ -1,0 +1,27 @@
+<div class="dashboard-page">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+
+       <div class="text-center">
+        <h2 class="brand">Link Sharing</h2>
+           <h3>Application</h3>
+               <img ng-src="http://localhost:8080/user/userImage/{{imageId}}" class="user-avatar" /><br />
+
+        <a ui-sref="login" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
+      </div>
+
+      <ul class="nav nav-sidebar">
+        <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Dashboard <span class="sr-only">(current)</span></a></li>
+          <li ng-class="{active: $state.includes('profile')}"><a ui-sref="profile">Profile</a></li>
+          <li ng-class="{active: $state.includes('invite')}"><a ui-sref="invite">Send Invite</a></li>
+          <li ng-class="{active: $state.includes('topic')}"><a ui-sref="topic">Add Topic</a></li>
+          <li ng-class="{active: $state.includes('resource')}"><a ui-sref="resource">Add Resource</a></li>
+      </ul>
+
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
+    </div>
+  </div>
+</div>
+</div>

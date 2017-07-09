@@ -1,0 +1,32 @@
+<div class="login-page">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+            <img src="images/link.png" class="user-avatar" />
+            <h1>LinkSharing<small>Registration</small></h1>
+            <form role="form" ng-submit="submit()">
+                <h3>{{errorMsg}}</h3>
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="firstName" ng-model="firstname" placeholder="FIRST NAME">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="lastName" ng-model="lastname" placeholder="LAST NAME">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id="username" ng-model="username" placeholder="USERNAME">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" id="password" ng-model="password" placeholder="PASSWORD">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline  input-lg" id="email" ng-model="email" placeholder="EMAIL ID">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-white btn-outline btn-lg btn-rounded">Register</button>
+                <a ng-href="#/"><button class="btn btn-white btn-outline btn-lg btn-rounded">Login</button></a>
+            </form>
+
+        </div>
+    </div>
+
+</div>
