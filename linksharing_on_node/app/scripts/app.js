@@ -93,7 +93,7 @@ angular
     })
     .service("Configuration", [function () {
         if (/localhost:9000/.test(window.location.host)) {
-            return this.API = 'http://localhost:8080';
+            return this.API = 'http://localhost:9090';
         } else {
             return this.API = '';
         }
