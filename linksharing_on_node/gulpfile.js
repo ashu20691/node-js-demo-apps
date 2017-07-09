@@ -46,6 +46,18 @@ app.post('/user/login', function (req, res) {
     });
 });
 
+app.get('/user/profile', function (req, res) {
+    db.collection("user").find(req.body).toArray(function (err, result) {
+        if (result.length ==0) {
+            res.send({status: 'failed', message: 'something wrong with your username password'})
+        }
+        else{
+            res.send(result[0]);
+
+        }
+    });
+});
+
 
 app.post('/user/register', function (req, res) {
     db.collection('user').save(req.body, function (err, result) {

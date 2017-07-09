@@ -3,7 +3,7 @@
     angular.module('yapp')
         .factory('LinksharingResource', ["$resource", "Configuration", function ($resource, Configuration) {
             return $resource(Configuration.API + "/:controller/:action", {}, {
-                    login: {method: 'POST', params: {controller: 'user', action: 'login'}},
+                login: {method: 'POST', params: {controller: 'user', action: 'login'}},
                 register: {method: 'POST', params: {controller: 'user', action: 'register'}},
                 profile: {method: 'GET', params: {controller: 'user', action: 'profile'}},
                 update: {method: 'POST', params: {controller: 'user', action: 'update'}},
