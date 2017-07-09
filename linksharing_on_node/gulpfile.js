@@ -57,6 +57,58 @@ app.get('/user/profile', function (req, res) {
         }
     });
 });
+app.get('/user/topicList', function (req, res) {
+    db.collection("topic").find(req.body).toArray(function (err, result) {
+        if (result.length ==0) {
+            res.send({status: 'failed', message: 'no data'})
+        }
+        else{
+            res.send(result);
+
+        }
+    });
+});
+
+app.post('/user/topicCreate', function (req, res) {
+    db.collection("topic").save(req.body ,function (err, result) {
+        if (result.length ==0) {
+            res.send({status: 'failed', message: 'no data'})
+        }
+        else{
+            db.collection("topic").find(req.body).toArray(function (err, result) {
+                if (result.length ==0) {
+                    res.send({status: 'failed', message: 'no data'})
+                }
+                else{
+                    res.send(req.body);
+
+                }
+            });
+
+        }
+    });
+});
+
+app.post('/user/topicDelete', function (req, res) {
+    db.collection("topic").delete(req.body ,function (err, result) {
+        if (result.length ==0) {
+            res.send({status: 'failed', message: 'error occured while delete topic'})
+        }
+        else{
+            db.collection("topic").find(req.body).toArray(function (err, result) {
+                if (result.length ==0) {
+                    res.send({status: 'failed', message: 'no data'})
+                }
+                else{
+                    res.send(req.body);
+
+                }
+            })
+
+        }
+    });
+});
+
 
 
 app.post('/user/register', function (req, res) {
