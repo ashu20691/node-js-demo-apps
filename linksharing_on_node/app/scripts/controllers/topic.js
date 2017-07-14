@@ -24,7 +24,7 @@ angular.module('yapp')
             $scope.showCreateForm = false;
         };
         $scope.delete = function (id) {
-            LinksharingResource.topicDelete({id:id},function (response) {
+            LinksharingResource.topicDelete({_id:id},function (response) {
                 $scope.list = response;
             });
         };

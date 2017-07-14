@@ -13,7 +13,7 @@
                     <tr ng-repeat="topic in list">
                         <td><b>{{topic.name}}</b></td>
                         <td><span class="badge">{{topic.visibility}}</span></td>
-                        <td ng-show="showDelete"><a href="#" class="btn btn-danger btn-xs" ng-click="delete(topic.topicId)"><span class="glyphicon glyphicon-minus"></span> Delete</a></td>
+                        <td ng-show="showDelete"><a href="#" class="btn btn-danger btn-xs" ng-click="delete(topic._id)"><span class="glyphicon glyphicon-minus"></span> Delete</a></td>
                     </tr>
                 </table>
               <!--  <ul class="list-group">

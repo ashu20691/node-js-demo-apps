@@ -17,6 +17,9 @@ const cors = require('cors');
 app.use(cors());
 app.options('*', cors());
 
+var ObjectId = require('mongodb').ObjectID;
+
+
 const MongoClient = require('mongodb').MongoClient;
 
 var db = null;
@@ -57,8 +60,8 @@ app.get('/user/profile', function (req, res) {
         }
     });
 });
-app.get('/user/topicList', function (req, res) {
-    db.collection("topic").find(req.body).toArray(function (err, result) {
+app.get('/topic/list', function (req, res) {
+    db.collection("topic").find().toArray(function (err, result) {
         if (result.length ==0) {
             res.send({status: 'failed', message: 'no data'})
         }
@@ -69,18 +72,18 @@ app.get('/user/topicList', function (req, res) {
     });
 });
 
-app.post('/user/topicCreate', function (req, res) {
+app.post('/topic/create', function (req, res) {
     db.collection("topic").save(req.body ,function (err, result) {
         if (result.length ==0) {
             res.send({status: 'failed', message: 'no data'})
         }
         else{
-            db.collection("topic").find(req.body).toArray(function (err, result) {
+            db.collection("topic").find().toArray(function (err, result) {
                 if (result.length ==0) {
                     res.send({status: 'failed', message: 'no data'})
                 }
                 else{
-                    res.send(req.body);
+                    res.send(result);
 
                 }
             });
@@ -89,23 +92,17 @@ app.post('/user/topicCreate', function (req, res) {
     });
 });
 
-app.post('/user/topicDelete', function (req, res) {
-    db.collection("topic").delete(req.body ,function (err, result) {
-        if (result.length ==0) {
-            res.send({status: 'failed', message: 'error occured while delete topic'})
-        }
-        else{
-            db.collection("topic").find(req.body).toArray(function (err, result) {
-                if (result.length ==0) {
-                    res.send({status: 'failed', message: 'no data'})
-                }
-                else{
-                    res.send(req.body);
+app.post('/topic/delete', function (req, res) {
+    db.collection("topic").remove({"_id": ObjectId(req.body._id)} ,function (err, result) {
+        db.collection("topic").find().toArray(function (err, result) {
+            if (result.length ==0) {
+                res.send([]);
+            }
+            else{
+                res.send(result);
 
-                }
-            })
-
-        }
+            }
+        })
     });
 });
 
